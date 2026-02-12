@@ -3,6 +3,7 @@ name: Ejecutar programa automaticamente
 on:
   schedule:
     - cron: '0 8 * * *'  # Se ejecuta todos los días a las 8:00 UTC
+  workflow_dispatch:
 
 jobs:
   ejecutar:
