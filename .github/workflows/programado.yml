@@ -21,4 +21,4 @@ jobs:
           fi
 
       - name: Ejecutar script
-        run: python test_backend.py
+        run: python prueba.py
