@@ -1,0 +1,24 @@
+name: Ejecutar programa automaticamente
+
+on:
+  schedule:
+    - cron: '0 8 * * *'  # Se ejecuta todos los días a las 8:00 UTC
+
+jobs:
+  ejecutar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v3
+
+      - name: Instalar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.14'
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Ejecutar programa
+        run: python prueba.py
