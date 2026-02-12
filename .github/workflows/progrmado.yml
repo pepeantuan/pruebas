@@ -1,25 +1,24 @@
-name: Ejecutar programa automaticamente
+name: Ejecutar backend
 
 on:
-  schedule:
-    - cron: '0 8 * * *'  # Se ejecuta todos los días a las 8:00 UTC
+  push:
   workflow_dispatch:
 
 jobs:
-  ejecutar:
+  run-backend:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Descargar el código
+      - name: Descargar código
         uses: actions/checkout@v3
 
-      - name: Instalar Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.14'
+      - name: Instalar dependencias (si existe requirements.txt)
+        run: |
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            echo "No hay requirements.txt, salto la instalación"
+          fi
 
-      - name: Instalar dependencias
-        run: pip install -r requirements.txt
-
-      - name: Ejecutar programa
-        run: python prueba.py
+      - name: Ejecutar script
+        run: python test_backend.py
