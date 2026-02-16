@@ -15,6 +15,8 @@ jobs:
         uses: actions/checkout@v4
 
       # Paso 2: Ejecutar tu script de Python
-      - name: Ejecutar script prueba.py
-        run: |
-          python prueba.py
+      - name: Ejecutar script
+        run: python prueba.py
+
+
+
