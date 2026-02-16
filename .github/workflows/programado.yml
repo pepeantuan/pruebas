@@ -1,4 +1,4 @@
-name: Ejecucion de prueba local
+name: Ejecucion de prueba local Mio
 
 on:
   push:
