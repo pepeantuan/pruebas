@@ -8,15 +8,14 @@ on:
 jobs:
   ejecutar-en-mi-pc:
     runs-on: self-hosted  # <--- Obligatorio para usar tu runner local
-
     steps:
-      # Paso 1: Descargar el código del repo a la carpeta del runner
-      - name: Checkout del código
+      - name: Checkout del script
         uses: actions/checkout@v4
 
-      # Paso 2: Ejecutar tu script de Python
-      - name: Ejecutar script
+      - name: Configurar Python en el Runner
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x' 
+
+      - name: Ejecutar lectura
         run: python prueba.py
-
-
-
