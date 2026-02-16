@@ -1,9 +1,22 @@
-from datetime import datetime
+import os
 
-def main():
-    hora_actual = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    print("Esto funciona")
-    print(f"Hora actual: {hora_actual}")
+# Nombre del archivo
+nombre_fichero = "datos.txt"
 
-if __name__ == "__main__":
-    main()
+# Verificamos si el archivo existe para evitar errores en el Runner
+if os.path.exists(nombre_fichero):
+    with open(nombre_fichero, "r", encoding="utf-8") as f:
+        lineas = f.readlines()
+        
+        total_registros = len(lineas)
+        
+        print("--- DEMOSTRACIÓN DE LECTURA ---")
+        # Mostramos los 3 primeros (o menos si el archivo es corto)
+        print("Primeros 3 registros:")
+        for i, linea in enumerate(lineas[:3]):
+            print(f"  {i+1}: {linea.strip()}")
+            
+        print("-------------------------------")
+        print(f"CONTEO TOTAL: El fichero tiene {total_registros} registros.")
+else:
+    print(f"Error: No se encuentra el archivo {nombre_fichero} en la carpeta actual.")
