@@ -1,7 +1,9 @@
 import os
 
 # Nombre del archivo
-nombre_fichero = "datos.txt"
+#nombre_fichero = "datos.txt"
+# RUTA ABSOLUTA a tu carpeta personal
+ruta_fichero = r"D:\Files\datos.txt"
 
 # Verificamos si el archivo existe para evitar errores en el Runner
 if os.path.exists(nombre_fichero):
@@ -20,3 +22,4 @@ if os.path.exists(nombre_fichero):
         print(f"CONTEO TOTAL: El fichero tiene {total_registros} registros.")
 else:
     print(f"Error: No se encuentra el archivo {nombre_fichero} en la carpeta actual.")
+
