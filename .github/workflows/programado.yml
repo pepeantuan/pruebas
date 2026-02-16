@@ -12,10 +12,6 @@ jobs:
       - name: Checkout del script
         uses: actions/checkout@v4
 
-      - name: Configurar Python en el Runner
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x' 
-
       - name: Ejecutar lectura
-        run: python prueba.py
+        run: |
+            & "C:\Users\krahv\AppData\Local\Programs\Python\Python311\python.exe" prueba.py
