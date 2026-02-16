@@ -1,25 +1,20 @@
-name: Ejecutar backend
+name: Ejecucion de prueba local
 
 on:
   push:
-  workflow_dispatch:
+    branches: [ "main" ]  # Se activará cada vez que subas algo a la rama main
+  workflow_dispatch:      # Esto permite darle al botón "Run workflow" manualmente
 
 jobs:
-  run-backend:
-    # runs-on: ubuntu-latest
-    runs-on: self-hosted
+  ejecutar-en-mi-pc:
+    runs-on: self-hosted  # <--- Obligatorio para usar tu runner local
 
     steps:
-      - name: Descargar código
-        uses: actions/checkout@v3
+      # Paso 1: Descargar el código del repo a la carpeta del runner
+      - name: Checkout del código
+        uses: actions/checkout@v4
 
-      - name: Instalar dependencias (si existe requirements.txt)
+      # Paso 2: Ejecutar tu script de Python
+      - name: Ejecutar script prueba.py
         run: |
-          if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-          else
-            echo "No hay requirements.txt, salto la instalación"
-          fi
-
-      - name: Ejecutar script
-        run: python prueba.py
+          python prueba.py
