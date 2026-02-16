@@ -13,5 +13,5 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Ejecutar lectura
-        run: python --version
+        run: py --version
             #& "C:\Users\krahv\AppData\Local\Programs\Python\Python311\python.exe" prueba.py
